@@ -1,0 +1,91 @@
+title: "CoreOS在PC上快速安装上手"
+date: 2015-07-16 17:54:11
+categories: 技术
+tags: [CoreOS,docker]
+---
+
+Version:2
+
+![](data:image/jpeg;base64,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)
+
+## 意义
+能够以最快的速度安装部署Linux操作系统
+安装快速简单，几乎不花时间就可以开始运行Docker。
+运行速度非常快。使用内存硬盘。
+
+## 我的情况。
+win8 笔记本偶尔玩游戏，但是装Linux双系统可能需要我一天的时间来完成。
+我的所有业务都只需要在Docker中跑就可以了。
+而且我笔记本电脑内存够大16g （感谢HUST 姜老师）
+
+## 准备
+1. CoreOS image [下载地址](https://coreos.com/os/docs/latest/booting-with-iso.html)
+2. EasyBCD [下载地址](http://www.pc6.com/softview/SoftView_53180.html)
+
+## 开工
+1. 安装EasyBCD添加ISO引导项文件直接使用CoreOS的livecd image
+	详细步骤带截图：[http://jingyan.baidu.com/article/466506586ed309f549e5f81c.html](http://jingyan.baidu.com/article/466506586ed309f549e5f81c.html)
+2. 启动CoreOS完成CoreOS安装
+
+## 更新
+只需要给启动用的ISO文件更新即可。
+
+## 缺点
+1. 不能持久化（带来的优点，玩坏了，直接重启即可）
+2. 整个操作系统都在硬盘中生成的文件直接占用硬盘空间（带来的优点，硬盘速度提升非常高）
+3. 每次开机手动挂载硬盘空间，手动运行整个系统的初始化脚本。
+
+结合优缺点这里建议这套配置给有确定业务的工作来做还可以，如果业务比较多，可能需要优化的点比较多。
+
+## 配置
+
+1. 在硬盘上开一个100g大小的空间，并格式化,参考命令：`mkfs.ext4 /dev/sda2` 然后挂载
+如果您不明白如何分区格式化并且挂载请看考这里[https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks)
+这篇文章可以说是我见过关于初级磁盘管理最好的一篇文章了。
+2. 挂载之后复制 文件夹`/var/lib/docker/` 到挂载的位置在软连接回去。（然后docker images就可以持久化放到硬盘里面了重启不会丢失）参考操作如下：
+```
+cp -rf /var/lib/docker /mnt/
+rm -rf /var/lib/docker
+ln -s /mnt/docker /var/lib/docker
+```
+
+## 我的初始化文件参考
+```
+mkdir /root/.ssh
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcTvSn5METOJUKXRr+Sa92eL2PRZlHb5tdKMublwgvHWaYNxJyXrxCARmBCy8VAo6rb/OeTsyuMWjZ7fVpxKc32ZkcBoIRL7YNkAonO8nHMSLvWUSKkwo7wfWubJhBQtDjvJ40WIcECrFkssFxbcl9YuUeZjdclmcylBkfwzdHJl7c3NtOjtCosN1RUDQZZJEJzKpSNcYtX/D1fPY9MovDWAeQ+xcLb6Gy5rnCTfyGgZDowyDpFNNe+j0a9G1zjlEww3GvOD/UUIf7hDaji+HjO8/sLfHjfAWWULStoEl/aUoofs93QVQFxCPOeYnZR/QL8MkfXQmwme7Nv7xBeqrt Li-jianying@lijianyings-MacBook-Pro.local" > /root/.ssh/authorized_keys
+
+rm -rf /var/lib/docker
+ln -s /mnt/docker /var/lib/docker
+#echo 'DOCKER_OPTS="--registry-mirror=http://XXXXX.m.daocloud.io"' >> /run/flannel_docker_opts.env
+#systemctl daemon-reload
+systemctl restart docker
+# using disk
+```
+先导入rsakey，然后软连接到docker位置
+添加daocloud 加速（官方虽然没写CoreOS怎么加速，但是有大神给出了方法）
+因为我不加速比加速快所以这里就先注释掉。作为备选方案。
+
+## systemd遇到的坑
+如果docker中返回错误-1容器就会挂掉。但是systemd中还存在scope。
+当启动问题容器会提示
+```
+Error response from daemon: Cannot start container test: [8] System error: Unit docker-e10eb86807cd9971fc03a8eee732771193d506ed2ba678fdf4292916a9fb072c.scope already exists.
+```
+那么
+```
+systemctl stop docker-e10eb86807cd9971fc03a8eee732771193d506ed2ba678fdf4292916a9fb072c.scope
+```
+就可以搞定。
+
+## CoreOS.iso 遇到的坑2
+不断确认KnowHosts
+参考解决[https://github.com/lijianying10/FixLinux/blob/master/note/取消sshPublicKeyKnowHost认证.md](https://github.com/lijianying10/FixLinux/blob/master/note/%E5%8F%96%E6%B6%88sshPublicKeyKnowHost%E8%AE%A4%E8%AF%81.md)
+
+##总结
+用这种方法在PC中部署Linux实在是太方便了。熟悉Docker一套的这种想法可能20分钟就可以根据自己的情况搞定。
+我找到了这个思路之后经过各种权衡。
+1. 为了快速解决引导问题 用EasyBCD 直接引导内存ISO启动 `换` 折腾UEFI Grub的问题
+2. 为了减少配置环境带来的时间成本从普通安装到硬盘里面的发型版本 `换` CoreOS
+3. 为了避免错误操作Or版本升级给系统带来的不稳定因素 `换` Docker
+4. 在`未来`也许 `换` RKT,RunC(希望大婶们快点填坑，RunC说这个月Release不知道会不会跳票)
+5. 注意本方案是`不惜一切代价`用最简洁的环境配置来换开发时间。完美主义喜欢折腾的小伙伴可能要绕行了。
