@@ -1,7 +1,7 @@
 title: 修改mysql默认密码
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: mysql
+tags: [mysql]
 ---
 
 #修改mysql 密码

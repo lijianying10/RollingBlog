@@ -1,7 +1,7 @@
 title: golang 类型转换
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: golang
+tags: [golang]
 ---
 
 #golang中的坑

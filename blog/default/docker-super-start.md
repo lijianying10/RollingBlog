@@ -1,6 +1,6 @@
 title: "docker新手的超级开始"
 date: 2015-04-01 10:17:28
-tags: docker
+tags: [docker]
 categories: 技术
 ---
 ## 超级开始

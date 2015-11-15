@@ -1,7 +1,7 @@
 title: golang Unit test
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: golang
+tags: [golang]
 ---
 
 #golang中单元测试的坑。

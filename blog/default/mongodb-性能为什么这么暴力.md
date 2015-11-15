@@ -1,7 +1,7 @@
 title: 初探MongoDB：暴力美学
 date: 2015-02-09 11:57:20
 categories: 技术
-tags: mongodb
+tags: [mongodab]
 ---
 
 ## AUTH：PHILO version:2.0

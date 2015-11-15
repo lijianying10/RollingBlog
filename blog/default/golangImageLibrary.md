@@ -1,7 +1,7 @@
 title: golang 图片处理，剪切，base64数据转换，文件存储
 date: 2015-03-05 20:11:59
 categories: 技术
-tags: golang
+tags: [golang]
 ---
 
 ## AUTH:[PHILO](http://philo.top/about) VERSION:2

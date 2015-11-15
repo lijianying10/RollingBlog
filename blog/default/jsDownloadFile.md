@@ -1,7 +1,7 @@
 title: js生成文件并下载
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: js
+tags: [js]
 ---
 
 #js生成文件并下载

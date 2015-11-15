@@ -1,7 +1,7 @@
 title: "程序员的投资与投机"
 date: 2015-07-24 14:27:04
 categories: 杂谈
-tags: career
+tags: [career]
 ---
 
 ## 会写代码真的就够了吗？

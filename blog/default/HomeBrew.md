@@ -1,7 +1,7 @@
 title: homeBrew安装
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: homebrew
+tags: [homebrew]
 ---
 
 之前也是用MacPorts这个不是很好用啊。

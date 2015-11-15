@@ -1,7 +1,7 @@
 title: 设定mongodb 密码
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: mongodb
+tags: [mongodb]
 ---
 
 #mongodb 密码设定

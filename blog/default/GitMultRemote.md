@@ -1,7 +1,7 @@
 title: git添加多个repo
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: git
+tags: [git]
 ---
 
 

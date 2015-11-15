@@ -1,7 +1,7 @@
 title: sublime 授权
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: sublime
+tags: [sublime]
 ---
 
 

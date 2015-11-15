@@ -1,7 +1,7 @@
 title: atom模块的手动安装方法
 date: 2015-02-12 16:47:59
 categories: 技术
-tags: atom
+tags: [atom]
 ---
 
 最近发现部分地区apm已经不能用了因此在这给大家介绍一下手动安装的过程。

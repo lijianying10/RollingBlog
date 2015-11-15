@@ -1,7 +1,7 @@
 title: 安装php拓展在windows上
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: phpExtension
+tags: [phpExtension]
 ---
 
 #安装php拓展在windows上

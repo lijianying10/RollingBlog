@@ -1,7 +1,7 @@
 title: here doc JS 函数转字符串
 date: 0000-00-00 00:00:00
 categories: 技术
-tags: js
+tags: [js]
 ---
 
 直接上代码就可以了
