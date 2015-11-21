@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/russross/blackfriday"
 
@@ -50,8 +51,31 @@ func OpenFile() {
 		if err != nil {
 			fmt.Println("文章配置出错:  Path: "+path, err.Error())
 		}
+		if thisArticle.Date == "0000-00-00 00:00:00" {
+			thisArticle.Date = "1899-11-30 00:00:00"
+		}
+		thisArticle.URI = URIGen(path, thisArticle.Date)
 		html := blackfriday.MarkdownBasic(mainBody[First+4:])
 		thisArticle.Body = string(html)
 		ArticleObject = append(ArticleObject, thisArticle)
 	}
+}
+
+func URIGen(Path, Date string) string {
+	Point := 0
+	lastFliter := 0
+	for i := len(Path) - 1; i >= 0; i-- {
+		if Path[i] == '.' {
+			Point = i
+			break
+		}
+	}
+
+	for i := Point - 1; i >= 0; i-- {
+		if Path[i] == '/' {
+			lastFliter = i
+			break
+		}
+	}
+	return strings.Replace(strings.Split(Date, " ")[0], "-", "/", -1) + Path[lastFliter:Point]
 }

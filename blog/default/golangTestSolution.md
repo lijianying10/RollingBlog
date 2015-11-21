@@ -1,5 +1,5 @@
 title: golang 项目测试方案
-date: 2015-8-17 15:33:57
+date: 2015-08-17 15:33:57
 categories: 技术
 tags: [golang,python]
 ---
