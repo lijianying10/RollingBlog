@@ -19,4 +19,5 @@ func main() {
 	os.RemoveAll("public/")
 
 	assets.MotherPageGEN()
+	assets.ArticleGEN()
 }

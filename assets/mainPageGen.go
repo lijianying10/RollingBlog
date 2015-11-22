@@ -62,3 +62,23 @@ func MotherPageGEN() {
 	}
 	MotherPage = wrt.String()
 }
+
+func PageGEN(mainBody string) string {
+	t, err := template.New("page").Parse(MotherPage)
+	if err != nil {
+		fmt.Println("生成页面时模板错误", err.Error())
+	}
+
+	var w bytes.Buffer
+
+	data := struct {
+		MainBody string
+	}{
+		MainBody: mainBody,
+	}
+	err = t.Execute(&w, data)
+	if err != nil {
+		fmt.Println("运行模板出错")
+	}
+	return w.String()
+}
