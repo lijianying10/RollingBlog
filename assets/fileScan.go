@@ -77,5 +77,5 @@ func URIGen(Path, Date string) string {
 			break
 		}
 	}
-	return strings.Replace(strings.Split(Date, " ")[0], "-", "/", -1) + Path[lastFliter:Point]
+	return strings.Replace(strings.Split(Date, " ")[0], "-", "/", -1) + Path[lastFliter:Point] + "/"
 }

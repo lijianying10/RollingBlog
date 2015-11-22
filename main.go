@@ -1,6 +1,9 @@
 package main
 
-import "RollingBlog/assets"
+import (
+	"RollingBlog/assets"
+	"os"
+)
 
 func main() {
 	// Scan all article in path blog
@@ -11,4 +14,9 @@ func main() {
 	assets.ParseTimeStamp()
 	assets.RecentArticleGEN()
 	assets.TagGEN()
+
+	// Clean output path
+	os.RemoveAll("public/")
+
+	assets.MotherPageGEN()
 }

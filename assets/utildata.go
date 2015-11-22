@@ -66,8 +66,4 @@ func TagGEN() {
 			Tag[tag] = tagone
 		}
 	}
-
-	for k, v := range Tag {
-		fmt.Println(k, v.times)
-	}
 }
