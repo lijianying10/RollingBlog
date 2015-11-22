@@ -5,7 +5,10 @@
  
 <!-- Author -->
 <p class="lead">
-Tag {{.Tags}}
+Tags
+{{range .Tags}}
+<a href="/tags/{{.}}">{{.}}</a>
+{{end}}
 </p>
 
 <hr>
