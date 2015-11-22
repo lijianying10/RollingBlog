@@ -20,4 +20,8 @@ func main() {
 
 	assets.MotherPageGEN()
 	assets.ArticleGEN()
+	assets.IndexGEN()
+
+	// copy static files
+	assets.CopyDir("themeBase/_static", "public/")
 }
