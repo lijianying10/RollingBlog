@@ -28,7 +28,7 @@ func main() {
 	assets.CopyDir("themeBase/_static", "public/")
 	assets.ArchiveGEN()
 
-	fmt.Println("Finish Gen lesson 5k and serve")
+	fmt.Println("Finish Gen listen 5k and serve")
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./public"))))
 	http.ListenAndServe(":5000", nil)
 }

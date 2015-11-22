@@ -55,7 +55,7 @@ func OpenFile() {
 			thisArticle.Date = "1899-11-30 00:00:00"
 		}
 		thisArticle.URI = URIGen(path, thisArticle.Date)
-		html := blackfriday.MarkdownBasic(mainBody[First+4:])
+		html := blackfriday.MarkdownCommon(mainBody[First+4:])
 		thisArticle.Body = string(html)
 		ArticleObject = append(ArticleObject, thisArticle)
 	}

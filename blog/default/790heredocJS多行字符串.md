@@ -6,7 +6,8 @@ tags: [js]
 
 直接上代码就可以了
 
-```js
+``` js
+
 function heredoc(fn) {
     return fn.toString().split('\n').slice(1,-1).join('\n') + '\n'
     }
@@ -32,4 +33,8 @@ include sidebar
 include footer
 include script
 */});
+
 ```
+
+
+
