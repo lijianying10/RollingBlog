@@ -21,7 +21,7 @@ func tagHTMLGEN() string {
 func recnetArticleHTMLGEN() string {
 	res := ``
 	for _, article := range RecentArticle {
-		res = res + `<a href="` + article.URI + `">` + article.Title + `</a></br>`
+		res = res + `<a href="/` + article.URI + `">` + article.Title + `</a></br>`
 	}
 	return res
 }

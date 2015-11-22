@@ -2,6 +2,8 @@ package main
 
 import (
 	"RollingBlog/assets"
+	"fmt"
+	"net/http"
 	"os"
 )
 
@@ -24,4 +26,9 @@ func main() {
 
 	// copy static files
 	assets.CopyDir("themeBase/_static", "public/")
+	assets.ArchiveGEN()
+
+	fmt.Println("Finish Gen lesson 5k and serve")
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./public"))))
+	http.ListenAndServe(":5000", nil)
 }

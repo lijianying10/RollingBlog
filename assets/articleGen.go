@@ -18,7 +18,7 @@ func ArticleGEN() {
 	for _, article := range ArticleObject {
 
 		var wrt bytes.Buffer
-		err = t.Execute(&wrt, ArticleObject[0])
+		err = t.Execute(&wrt, article)
 		if err != nil {
 			fmt.Println(err.Error())
 		}

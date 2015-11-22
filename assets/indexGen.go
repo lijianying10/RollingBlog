@@ -20,7 +20,7 @@ func IndexGEN() {
 	for _, article := range RecentArticle {
 
 		var wrt bytes.Buffer
-		err = t.Execute(&wrt, ArticleObject[0])
+		err = t.Execute(&wrt, article)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
