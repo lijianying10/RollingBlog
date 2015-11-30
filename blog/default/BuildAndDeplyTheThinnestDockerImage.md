@@ -1,7 +1,7 @@
 title: 构建最小Docker Image运行网站程序并部署到DaoCloud中
 date: 2015-06-06 17:00:22
 categories: 技术
-tags: [DaoCloud,Docker,Linux,Ubuntu,BusyBox,Golang]
+tags: [DaoCloud,Docker,Linux,Ubuntu,BusyBox,golang]
 ---
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/docker.jpg)

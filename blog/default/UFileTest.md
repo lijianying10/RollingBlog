@@ -47,7 +47,7 @@ tags: [ucloud,storage]
 3. 下面的例子是你主要参考的地方。
 4. 配置文件千万不要搞错了哦。
 5. 如果你需要内网访问UFile请查看链接：[https://docs.ucloud.cn/upd-docs/ufile/faq.html#id5](https://docs.ucloud.cn/upd-docs/ufile/faq.html#id5)请注意哦。这里不是API文档，是产品文档，而且还是产品文档的FAQ当技术人员找到文档之后我整个人都感觉崩溃了。不好了。笑尿了。
-
+6. 说明书上的空间跟Console里面的空间不是一个名词哦，要注意,控制台中的名词叫做空间域名比如说 `xxxx.ufile.ucloud.cn` 当我们在使用命令bucket 参数的时候要填写`xxxx`不然不好使
 ## 最后
 
 UCloud 跟阿里云和青云比起来确实比较贵。但是UCloud的销售貌似因为华三交换机的问题很看不起青云。虽然我不是很懂。
