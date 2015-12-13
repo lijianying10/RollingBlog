@@ -75,8 +75,8 @@ ctrl+c 退出该模式
 1. `apt-get update` 准备安装各种依赖
 2. build-essential 各种编译器，curl 下载配置文件用，git 平时写代码的时候用，vim-nox 此vim有+ryby +lua 所以选他安装，ctags  是tagbar的依赖。其他的不是重点，但都不可少。
 3. 第6-9行都是从github上下载各种包还有配置文件放到容器中。
-4. 本句命令`vim "+PluginInstall" "+GoInstallBinaries" "+qall"` 是打开vim执行两个命令，然后退出，第一个命令为下载vimrc中描述的插件，第二个命令为自动下载golnag开发工具包。
-5. 所有go get命令都为常用golnag开发时用的包。
+4. 本句命令`vim "+PluginInstall" "+GoInstallBinaries" "+qall"` 是打开vim执行两个命令，然后退出，第一个命令为下载vimrc中描述的插件，第二个命令为自动下载golang开发工具包。
+5. 所有go get命令都为常用golang开发时用的包。
 6. `echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen "en_US.UTF-8"`  编译本地定义文件的一个列表,如此才能支持utf-8
 7. 字体安装`mkdir ~/.font/ && cd ~/.font/ && git clone https://github.com/eugeii/consolas-powerline-vim.git && cd consolas-powerline-vim/ && cp *.ttf .. && cd .. && rm -rf consolas-powerline-vim/ && mkfontscale && mkfontdir && fc-cache -vf`
 8. Command-T 依赖安装`cd ~/.vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make ` 这个插件十分有用类似sublime中Ctrl+p的功能。

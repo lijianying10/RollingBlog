@@ -6,7 +6,7 @@ tags: [golang,etcd]
 ### VER:0-preRelease
 
 ## 介绍
-Etcd 作为golnag的杀手级应用，还是非常值得研究的。下面几个链接是从我的认知角度上认为新手应该看的内容。
+Etcd 作为golang的杀手级应用，还是非常值得研究的。下面几个链接是从我的认知角度上认为新手应该看的内容。
 
 [http://www.oschina.net/p/etcd](http://www.oschina.net/p/etcd)
 
