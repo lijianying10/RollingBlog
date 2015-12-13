@@ -4,6 +4,9 @@ categories: 技术
 tags: [golang,dev,env,atom]
 ---
 
+## 此文已经过期，[查看最新版本](/2015/12/13/golang-devenv/)
+## `注意：` 新版使用VIM 如果您依然需要使用图形界面，或者非常不熟悉VIM依然可以参考此篇中的方法。
+
 ##AUTH:[PHILO](http://philo.top/about) VERSION:1.2
 
 ![](http://golang.org/doc/gopher/project.png)
