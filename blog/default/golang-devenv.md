@@ -61,17 +61,17 @@ Ctrl+s保存的时候添加代码格式检查（其实就是追加命令 :GoMeta
 
 ### 兼顾国内网络情况
 
-1. 使用Dockerfile从国外VPS构建，然后推送到时速云备用。这种构建方式适合调试
+1. 使用Dockerfile从国外VPS构建，然后推送到时速云备用。这种构建方式适合调试。
 2. `推荐！`如果您在国外没有VPS推荐使用时速云TCE来构建，从香港节点自动化构建随时能看到日志。[参考文档](http://doc.tenxcloud.com/doc/v1/ci/client-download.html)
 
 ### 升级方便
 
 1. 直接修改Dockerfile完成升级，调整From就可以调整底层系统使用。
-2. 可根据您的需要随时定制自己的版本。非常方便
+2. 可根据您的需要随时定制自己的版本。非常方便。
 
 ### 随时能够快速部署
 
-1. Docker启动速度非常快
+1. Docker启动速度非常快。
 2. 如果您没有Image在内网该Image也只有1GB大小可非常快速的传输到您的电脑。
 3. 国内准备好了加速源，详细查看Docker Registry部分。时速云确实挺快的。
 4. 如果您的工作站安装的是CoreOS or Rancher这种的Docker Linux 不但安装快，部署开发环境也是一瞬间完成。
@@ -88,21 +88,21 @@ Ctrl+s保存的时候添加代码格式检查（其实就是追加命令 :GoMeta
 
 快捷键： `<leader>t`
 
-注意：`<leader>`在我的vim配置里面是反斜杠,插件快捷键参考官方文档
+注意：`<leader>`在我的vim配置里面是反斜杠,插件快捷键参考官方文档。
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/QQ20151213-0@2x.png)
 
 ### 项目管理(NERD_tree)
 
-快捷键： `M-u`
+快捷键： `M-u`。
 
-注意： 插件快捷键参考官方文档
+注意： 插件快捷键参考官方文档。
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/QQ20151213-1@2x.png)
 
 ### 自动语法检查
 
-触发： 每次保存文件
+触发： 每次保存文件。
 
 命令： `:GoMetaLinter, which invokes all possible linters (golint, vet, errcheck, deadcode, etc..) and shows the warnings/errors`
 
@@ -116,37 +116,37 @@ Ctrl+s保存的时候添加代码格式检查（其实就是追加命令 :GoMeta
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/QQ20151213-3@2x.png)
 
-注意：在最上面会显示API文档,想关闭文档快捷键：`M-c` 
+注意：在最上面会显示API文档,想关闭文档快捷键：`M-c` 。
 
 ### 查找定义位置
 
-快捷键：`M-n`
+快捷键：`M-n`。
 
 ### Outline 快速跳转(Tagbar)
 
-快捷键：`M-p`
+快捷键：`M-p`。
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/QQ20151213-4@2x.png)
 
 ### 快速关闭文件
 
-快捷键：`C-c`
+快捷键：`C-c`。
 
 
 ### 文件标签切换
 
-快捷键： `M-i` 切换到上一个
-快捷键： `M-o` 切换到下一个
+快捷键： `M-i` 切换到上一个。
+快捷键： `M-o` 切换到下一个。
 
 ### 保存文件
 
-快捷键 `C-s`
+快捷键 `C-s`。
 
 注意： Stop tty已经被我关闭，不必担心tty被锁。
 
 ## 总结
 
-在上面我总结的全部都是我加的快捷键用起来比较舒服的。如果您需要自己修改快捷键请fork[我的github REPO](https://github.com/lijianying10/FixLinux/blob/master/dotfile/.vimrc)
+在上面我总结的全部都是我加的快捷键用起来比较舒服的。如果您需要自己修改快捷键请fork[我的github REPO](https://github.com/lijianying10/FixLinux/blob/master/dotfile/.vimrc)。
 
 如果您有任何改进意见请回复留言给我发Email。先谢过。
 
