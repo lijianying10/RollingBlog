@@ -1,10 +1,10 @@
 title: docker+tmux 加强容器调度
-date: 2015-12-13 13:07:32
+date: 2016-01-03 22:32:34
 categories: 技术
 tags: [tmux,docker]
 ---
 
-## VERSION:1
+## VERSION:1.1
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/u=1306363718,2217319814&fm=15&gp=0.jpg)
 
@@ -21,9 +21,24 @@ tags: [tmux,docker]
 
 经过`2`个版本的迭代终于搞定。到达1.0版本。
 
+## 更新记录
+
+### 2016-1-3 VER:1.1
+
+此次版本更新主要更新了快捷键部分。
+```
+M-r 重命名窗口
+M-wsad 切换pane
+M-WSAD 调整pane大小
+M-q 竖着切割窗口
+M-e 横着切割窗口 
+```
+
 ## Docker Registry
 
 `docker pull index.tenxcloud.com/philo/dmonit:1.0`
+
+`docker pull index.tenxcloud.com/philo/dmonit:1.1`
 
 ## Dockerfile
 
