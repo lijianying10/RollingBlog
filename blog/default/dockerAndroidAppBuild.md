@@ -1,4 +1,4 @@
-title: docker下进行Android编译
+title: 如何利用 Docker 环境加速 Android 应用的构建
 date: 2016-01-03 23:04:14
 categories: 技术
 tags: [docker,android,ci]
@@ -95,7 +95,7 @@ RUN echo y | android update sdk --no-ui --all --filter android-22,build-tools-21
 
 第二点中目的有三个：
 
-1. 查看自己的依赖是否正确(android update sdk)这里，如果多了精简掉，如果少了加上。
+1. 查看项目是否缺少依赖，使用android update sdk 命令来增加安卓sdk依赖包。
 2. 自动下载项目中所有的依赖。
 3. 安装gradlew。
 
