@@ -1,9 +1,9 @@
 title: "RancherOS 初期使用的感受"
 date: 2015-11-29 12:14:16
-tags: [docker,linux]
+tags: [rancher,docker,linux]
 ---
 
-### VER: 0-preRelease
+### VER: 0-prerelease
 
 ## 意义
 随着我们团队线下业务的压力越来越高。并且我们团队是一个并没有运维的团队想部署与管理集群光安装都是比较麻烦的事情。
@@ -42,6 +42,15 @@ tags: [docker,linux]
 一定要注意安装硬盘的位置，别装错地方了。注意RancherOS版本，我用的是0.4.1
 
 注意RancherOS默认NS服务器是google的，需要自己做调整，修改配置文件/etc/resolv.conf可以解决这个问题。
+
+#### 国内安装加速点：
+
+```
+index.tenxcloud.com/philo/rancheros:v0.4.1
+index.tenxcloud.com/philo/rancheros:v0.4.3
+
+
+```
 
 ## RancherOS 的结构
 
