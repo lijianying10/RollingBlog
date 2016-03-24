@@ -53,7 +53,7 @@ docker run -it -d --name pg2 --net=aaa -v /root/share:/share -h slave psql /bin/
 docker run -it -d --name pg1 --net=aaa -v /root/share:/share -h master psql /bin/bash
 ```
 
-### 本文中master节点的配置方法
+### 本文中master节点的配置方法 (master.sh)
 
 ``` shell
 cat >>  /etc/postgresql/9.5/main/postgresql.conf << EOF
@@ -94,7 +94,7 @@ EOF
 这里的IP地址 `0.0.0.0/0` 是allow地址，当前的数据为各种开，不限制。 `/` 后面为掩码长度。
 
 
-### 本文中slave节点的配置方法
+### 本文中slave节点的配置方法 (slave.sh)
 
 ``` shell
 cat >>  /etc/postgresql/9.5/main/postgresql.conf << EOF
