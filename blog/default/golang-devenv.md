@@ -1,10 +1,10 @@
 title: golang 环境配置建议
-date: 2015-12-13 11:35:20
+date: 2016-04-05 13:39:00
 categories: 技术
 tags: [golang,dev,env,vim,docker]
 ---
 
-## VERSION:1
+## VERSION:1.3
 
 ![](http://golang.org/doc/gopher/project.png)
 
@@ -37,9 +37,9 @@ tags: [golang,dev,env,vim,docker]
 
 ## Docker Registry
 
-`docker pull index.tenxcloud.com/philo/golangdev:1.2.1`
+`docker pull index.tenxcloud.com/philo/golangdev:1.3`
 
-`docker pull lijianying10/golangdev:1.2.1`
+`docker pull lijianying10/golangdev:1.3`
 
 如果你还不会docker请参考[这里](/2015/04/01/docker-super-start/)
 
@@ -56,6 +56,17 @@ tags: [golang,dev,env,vim,docker]
 Ctrl+s保存的时候添加代码格式检查（其实就是追加命令 :GoMetaLinter）
 更新golang到1.5.2 based on Debian 8
 ```
+
+### 1.3 (2016年04月04日)
+
+1. 环境升级：`debian 8`, `golang 1.6`
+2. VIM插件升级 : powerline-> airline 修复字体问题
+3. 修复VIM+TMUX背景颜色不一致的问题。
+4. BASHRC添加了手动下载最新环境变量的alias
+
+注意：如果您想解决乱码问题需要下载[PowerLine字体](https://github.com/powerline/fonts)设置Term软件到这里面的字体就可以了。常用的编程字体里面都有
+如果您不想用PowerLine字体请注释掉：`let g:airline_powerline_fonts = 1` 此行代码位置在`~/.vimrc` 
+
 
 ## 特征解释
 
@@ -92,7 +103,7 @@ Ctrl+s保存的时候添加代码格式检查（其实就是追加命令 :GoMeta
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/QQ20151213-0@2x.png)
 
-### 项目管理(NERD_tree)
+### 文件管理(NERD_tree)
 
 快捷键： `M-u`。
 
