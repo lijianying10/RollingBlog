@@ -4,7 +4,14 @@ categories: 技术
 tags: [letsencrypt,docker,nginx]
 ---
 
-## VERSION: 1
+## VERSION: pre-1
+
+## TODO:
+
+1. 此文需要面向新手完善步骤
+2. 此文需要去除口语化
+3. 此文需要完善系统架构图，有点复杂
+4. 自动续期
 
 ![](https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg)
 
