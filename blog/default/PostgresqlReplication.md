@@ -6,7 +6,11 @@ tags: [postgresql]
 
 ![](http://www.postgresql.org/media/img/layout/hdr_left.png)
 
-## VERSION:1
+## VERSION:1.1
+
+## 更新：
+### 2016年04月16日13:28:06 
+自己重新实践之后修改了脚本中明显的错误更新的脚本指定的ip地址方便Docker测试。
 
 ## PostgreSQL Version 9.5.1
 
@@ -115,12 +119,14 @@ EOF
 
 cat >  /var/lib/postgresql/9.5/main/recovery.conf << EOF
 standby_mode = on
-primary_conninfo = 'host=192.168.0.2 user=repluser password=123 port=5432'
+primary_conninfo = 'host=pg1.aaa user=repluser password=123 port=5432'
 EOF
 ```
 
-需要注意的点：
-这里的conninfo需要自己根据情况修改，host地址为主机的地址，用户建立的方法注意后面文档的写法。
+### 需要注意的点：
+
+这里的conninfo需要自己根据情况修改，host地址为主机的地址，用户建立的方法注意后面文档的写法。在你自己的实践中一定要及得修改服务器地址。
+这里指定的ip地址为 `容器名.网卡名` 如果是在docker测试环境下Docker 又自己的DNS 会帮你找到服务ip地址的。
 
 ## 具体操作方法
 
@@ -159,6 +165,8 @@ cp -rf /var/lib/postgresql/9.5/main /share/
 psql -U postgres -c "select pg_stop_backup();"
 ```
 
+#### 一定要注意同步方式二选一。一种是真实集群下的，另外一种是Docker测试研究学习环境中使用的。
+
 3. Slave节点操作方法
 
 ``` shell
@@ -170,7 +178,7 @@ sh /share/slave.sh
 cp -rf /share/main /var/lib/postgresql/9.5
 
 # 修改数据库文件owner
-chown -R postgres.postgres main
+chown -R postgres.postgres /var/lib/postgresql/9.5/main
 ```
 
 ## 总结
