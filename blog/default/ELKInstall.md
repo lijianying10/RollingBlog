@@ -6,7 +6,15 @@ tags: [elk,elasticsearch,kibina,logstash,docker]
 
 ![](http://7viiaq.com1.z0.glb.clouddn.com/download.png)
 
-## VERSION:1
+## VERSION:1.1
+
+## 更新
+
+### 2016年04月16日17:30:24
+1. ubuntu镜像更新
+2. 添加百度网盘下载
+3. 修正logstash 检查config的bug添加一个注意事项
+
 
 ## 环境Version
 
@@ -16,7 +24,9 @@ elasticsearch 2.2.1
 logstash 2.2.2
 kibana 4.4.2
 ```
+### 快速下载通道：
 
+[http://pan.baidu.com/s/1qYCFvvY](http://pan.baidu.com/s/1qYCFvvY)
 
 ## 背景：
 
@@ -92,7 +102,7 @@ Docker 可以让环境的构建的问题可以复现，构建好的环境可以�
 
 ``` shell
 cat >> /root/el/Dockerfile << EOF
-FROM ubuntu:14.04.3
+FROM ubuntu:14.04.4
 ADD jdk /usr/local/jdk
 ADD elasticsearch /usr/local/elasticsearch
 ENV JAVA_HOME /usr/local/jdk
@@ -111,7 +121,7 @@ EOF
 
 ```
 cat >> /root/ki/Dockerfile << EOF
-FROM ubuntu:14.04.3
+FROM ubuntu:14.04.4
 ADD kibana /usr/local/kibana
 RUN echo "port: 5601" >> /usr/local/kibana/config/kibana.yml && echo "host: 0.0.0.0" >> /usr/local/kibana/config/kibana.yml && echo "elasticsearch_url: http://elasticsearch.elastic:9200" >> /usr/local/kibana/config/kibana.yml
 ENV PATH $PATH:/usr/local/kibana/bin/
@@ -124,7 +134,7 @@ EOF
 
 ```
 cat >> /root/lo/Dockerfile << EOF
-FROM ubuntu:14.04.3
+FROM ubuntu:14.04.4
 ADD jdk /usr/local/jdk
 ADD logstash_2.2.2-1_all.deb /logstash_2.2.2-1_all.deb
 ENV JAVA_HOME /usr/local/jdk
@@ -187,6 +197,8 @@ output {
 ```
 docker run -it --rm -v /root/conf/:/conf -v /root/logstash/:/data/ --net=elastic lo:0 logstash -t -f /conf
 ```
+
+### `注意检查中会检查文件夹权限，如果错误是不会通过的。所以需要先运行下面的elastic 和kibana 运行脚本`
 
 ## 运行ELK
 
