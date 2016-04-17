@@ -14,6 +14,7 @@ tags: [elk,elasticsearch,kibina,logstash,docker]
 1. ubuntu镜像更新
 2. 添加百度网盘下载
 3. 修正logstash 检查config的bug添加一个注意事项
+4. 修改配置文件中的明显问题
 
 
 ## 环境Version
@@ -181,11 +182,13 @@ output {
         hosts => "elasticsearch.elastic"
     }
     file {
-        path => "/data/%{+yyyy/MM/dd/HH}/%{host}.log.gz"
+        path => "/data/%{+YYYY-MM-dd}/%{host}.log.gz"
         gzip => true
     }
 }
 ```
+
+注意文件的后缀名为 `.conf`
 
 在本例配置文件中，入口方式为监控syslog输出为elasticsearch 以及按照天与容器到压缩包。 方便备份。
 配合上面的dockerfile请将上面的配置文件放到`/root/conf/`
@@ -219,6 +222,8 @@ docker run -it -d --name logstash -v /root/conf/:/conf -p 12201:12201/udp -v /ro
 5. 运行Elasticsearch
 6. 运行 kibana
 7. 运行logstash
+
+最后输出结果，elasticsearch 文件会输出到/root/data 中，logstash的日志压缩备份会放到/root/logstash
 
 
 ## 总结
