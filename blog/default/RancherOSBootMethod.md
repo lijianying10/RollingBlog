@@ -5,6 +5,8 @@ tags: [rancher,docker,linux,iPXE,PXE,syslinux,virtualbox]
 
 ### VER: 1
 
+![](http://rancher.com/wp-content/themes/rancher-2016/assets/images/rancheros-docker-kernel.png)
+
 ## 意义
 最近一直在尝试自己写一服务器平台方便自己和别人开发的，能把流程做进去最好了。
 但是万事开头难，在尝试了CoreOS iPXE 启动方法之后发现Image太大大概要200mb+的样子。
@@ -170,6 +172,40 @@ label rancheros
 
  - [ISOLINUX](http://www.syslinux.org/wiki/index.php?title=ISOLINUX)
  - [对我就是从RancherOS官方启动参考](https://github.com/rancher/os/blob/master/scripts/isolinux.cfg)
+
+### Windows 启动参考
+
+```
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" createvm --name "service" --register
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm "service" --memory 512 --acpi on --boot1 dvd
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm "service" --nic1 hostonly --hostonlyadapter1 "VirtualBox Host-Only Ethernet Adapter" --nicpromisc1 allow-all
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm "service" --nic2 nat  --natnet2 "192.168/16" --natpf2 "guestssh,tcp,,2222,,22" --nicpromisc2 allow-all
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm "service" --ostype Linux
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" createhd --filename D:\io.vdi --size 10000
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" storagectl "service" --name "IDE Controller" --add ide
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" storageattach "service" --storagectl "IDE Controller"  --port 0 --device 0 --type hdd --medium D:\io.vdi
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" storageattach "service" --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium D:\ros.iso
+```
+
+注意： hostonly 网卡名字
+
+### vboxmanage 踩坑
+
+#### 查看所有hostonly网卡：
+
+`VBoxManage list hostonlyifs`
+
+#### 创建网卡并配置DHCP
+
+```
+VBoxManage hostonlyif create
+VBoxManage hostonlyif ipconfig vboxnet0 --ip 192.168.56.1
+VBoxManage dhcpserver add --ifname vboxnet0 --ip 192.168.56.1 --netmask 255.255.255.0 --lowerip 192.168.56.254 --upperip 192.168.56.200
+VBoxManage dhcpserver modify --ifname vboxnet0 --enable
+```
+
+注意上面如果是windows注意换网卡名字
 
 ## 总结
 
