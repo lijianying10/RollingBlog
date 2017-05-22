@@ -42,7 +42,7 @@ tags: [docker,StackStorm2]
 ``` sh
 docker network create stn
 docker run -itd --hostname st2-mongo  --name st2-mongo  -v /var/lib/mongo:/data/db --net=stn daocloud.io/library/mongo:3.4.3
-docker run -itd --hostname st2-etcd --name st2-etcd --net=stn index.tenxcloud.com/coreos/etcd:2.3.1 /etcd -listen-client-urls http://0.0.0.0:2379,http://0.0.0.0:4001 -advertise-client-urls http://127.0.0.1:2379,http://127.0.0.1:4001
+docker run -itd --hostname st2-etcd --name st2-etcd --net=stn index.tenxcloud.com/coreos/etcd:2.3.1 /usr/local/bin/etcd -listen-client-urls http://0.0.0.0:2379,http://0.0.0.0:4001 -advertise-client-urls http://127.0.0.1:2379,http://127.0.0.1:4001
 docker run -itd --hostname st2-rabbit --name st2-rabbit -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=123456 --net=stn daocloud.io/library/rabbitmq:3.6.9
 docker run -itd --hostname st2 --name st2 --net=stn -e USER_NAME=admin -e USER_PASSWORD=123456 -e CONN_RMQ=amqp://root:123456@st2-rabbit.stn:5672/ -e MONGO_HOST=st2-mongo.stn -e MONGO_DB=st2 -e MONGO_PORT=27017 -e ETCD_ENDPOINT=http://st2-etcd.stn:2379 -p 80:80 -p 443:443 index.tenxcloud.com/philo/stackstorm:2.2.1
 ```
