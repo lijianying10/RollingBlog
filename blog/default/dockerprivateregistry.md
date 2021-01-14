@@ -52,6 +52,12 @@ server {
                 proxy_pass http://127.0.0.1:5000;
         }
 }
+
+server{
+        listen 80;
+        server_name hub.philo.top;
+        return 301 https://$host$request_uri;
+}
 ```
 
 注意：
@@ -65,3 +71,4 @@ server {
 7. `location /v2` 的作用是路由到 docker registry
 8. 别忘了设置域名A记录
 9. `SSL` 证书最好是要配置上的，原因是docker pull过程默认是要证书的不然需要特别配置trust同理 kubernetes 也有类似的需求稍微衡量一下5块钱还是值得的
+10. 下面的一个Server是为了强制HTTPS
