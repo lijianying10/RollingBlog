@@ -50,11 +50,13 @@ func MotherPageGEN() {
 		TagRight      string
 		RecentArticle string
 		MainBody      string
+		PageTitle     string
 	}{
 		TagLeft:       left,
 		TagRight:      right,
 		RecentArticle: recnetArticleHTMLGEN(),
 		MainBody:      `{{.MainBody}}`,
+		PageTitle:     `{{.PageTitle}}`,
 	}
 	err = t.Execute(&wrt, data)
 	if err != nil {
@@ -63,7 +65,10 @@ func MotherPageGEN() {
 	MotherPage = wrt.String()
 }
 
-func PageGEN(mainBody string) string {
+func PageGEN(mainBody, pageTitle string) string {
+	if pageTitle == "" {
+		pageTitle = "philo.top"
+	}
 	t, err := template.New("page").Parse(MotherPage)
 	if err != nil {
 		fmt.Println("生成页面时模板错误", err.Error())
@@ -72,9 +77,11 @@ func PageGEN(mainBody string) string {
 	var w bytes.Buffer
 
 	data := struct {
-		MainBody string
+		MainBody  string
+		PageTitle string
 	}{
-		MainBody: mainBody,
+		MainBody:  mainBody,
+		PageTitle: pageTitle,
 	}
 	err = t.Execute(&w, data)
 	if err != nil {

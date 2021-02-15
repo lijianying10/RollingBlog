@@ -35,7 +35,7 @@ func ArticleGEN() {
 		}
 
 		os.MkdirAll("public/"+article.URI, 0777)
-		err = ioutil.WriteFile("public/"+article.URI+"index.html", []byte(PageGEN(wrt.String()+wrtc.String())), 0644)
+		err = ioutil.WriteFile("public/"+article.URI+"index.html", []byte(PageGEN(wrt.String()+wrtc.String(), article.Title)), 0644)
 		if err != nil {
 			fmt.Println("文件存储异常", err.Error())
 		}

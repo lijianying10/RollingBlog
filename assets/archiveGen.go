@@ -28,7 +28,7 @@ func ArchiveBodyGEN(articles []Article, archivetitle string) {
 
 	}
 	os.MkdirAll("public/"+archivetitle+"/", 0777)
-	err = ioutil.WriteFile("public/"+archivetitle+"/"+"index.html", []byte(PageGEN(wrts)), 0644)
+	err = ioutil.WriteFile("public/"+archivetitle+"/"+"index.html", []byte(PageGEN(wrts, "philo.top: Archive")), 0644)
 	if err != nil {
 		fmt.Println("文件存储异常", err.Error())
 	}

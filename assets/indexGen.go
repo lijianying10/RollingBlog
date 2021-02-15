@@ -27,7 +27,7 @@ func IndexGEN() {
 		RecentArticles += wrt.String()
 	}
 
-	err = ioutil.WriteFile("public/index.html", []byte(PageGEN(RecentArticles)), 0644)
+	err = ioutil.WriteFile("public/index.html", []byte(PageGEN(RecentArticles, "")), 0644)
 	if err != nil {
 		fmt.Println("文件存储异常", err.Error())
 	}
